@@ -1,0 +1,16 @@
+---
+- name: Deploy Software with Loop
+  hosts: webserver
+  become: yes
+  vars:
+    software_packages:
+      - nginx
+      - apache2
+      - mysql-server
+
+  tasks:
+    - name: Install Software Packages
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ software_packages }}"

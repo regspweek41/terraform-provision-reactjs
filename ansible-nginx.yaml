@@ -1,0 +1,21 @@
+---
+- name: Example Playbook
+  hosts: webserver
+  become: yes
+
+  tasks:
+   
+    - name: Ensure Nginx is installed
+      apt:
+        name: nginx
+        state: present
+        
+    - name: stop nginx
+      service:
+          name: nginx
+          state: stopped
+          
+    - name: uninstall nginx
+      apt: name=nginx state=absent
+
+   

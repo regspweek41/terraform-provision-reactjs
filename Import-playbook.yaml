@@ -1,0 +1,6 @@
+---
+- name: Main Playbook
+  hosts: all
+  gather_facts: false
+- import_playbook: ansible-conditional.yaml
+- import_playbook: ansible-nginx.yaml
